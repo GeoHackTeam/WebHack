@@ -50,12 +50,12 @@ unless ($tcpto) {
 
 unless ($test) {
     unless ($timeout) {
-        $timeout = 100;
-        print "100 wamshi igzavneba .\n";
+        $timeout = 1000;
+        print "1000 wamshi igzavneba .\n";
     }
     unless ($connections) {
-        $connections = 1000;
-        print "1000 boti.\n";
+        $connections = 10000;
+        print "10000 boti.\n";
     }
 }
 
